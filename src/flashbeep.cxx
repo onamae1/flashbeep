@@ -1,4 +1,5 @@
-#include "flashbeep.hxx"
+#include "flashbeep.h"
+#include "ncursesinterface.h"
 
 #include <ncurses.h>
 
@@ -6,12 +7,12 @@ using namespace fb;
 
 namespace fb {
     int __stdcall flashbeep(void) {
-        if (flash() != OK) {
-            return ERR;
+        int result = OK;
+        if (OK != NCursesInterface::instance->flash()) {
+            result = ERR;
+        } else if (OK != NCursesInterface::instance->beep()) {
+            result = ERR;
         }
-        if (beep() != OK) {
-            return ERR;
-        }
-        return OK;
+        return result;
     }
 }

@@ -1,14 +1,30 @@
 SET(CMAKE_LEGACY_CYGWIN_WIN32 0)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
+SET(CMAKE_CXX_STANDARD 11)
 SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
-
-ADD_LIBRARY(flashbeep SHARED
+SET(SOURCE_FILES
     flashbeep.cxx
 )
+LINK_DIRECTORIES(/usr/local/lib)
+
+ADD_LIBRARY(flashbeep SHARED
+    ${SOURCE_FILES}
+    ncursesdelegater.cxx
+)
 TARGET_LINK_LIBRARIES(flashbeep
+    ncurses
+)
+ADD_EXECUTABLE(flashbeeptest
+    flashbeeptest.cxx
+    ${SOURCE_FILES}
+    ncurseslogger.cxx
+)
+TARGET_LINK_LIBRARIES(flashbeeptest
+    CppUTest
+    CppUTestExt
     ncurses
 )
 
@@ -17,4 +33,4 @@ INSTALL(TARGETS flashbeep
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
 )
-INSTALL(FILES flashbeep.hxx DESTINATION include)
+INSTALL(FILES flashbeep.h DESTINATION include)
