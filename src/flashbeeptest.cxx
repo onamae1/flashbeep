@@ -15,9 +15,9 @@ TEST_GROUP(flashbeepTestGroup) {};
 TEST(flashbeepTestGroup, flashbeepTest) {
     auto logger = dynamic_pointer_cast<NCursesLogger>(
             NCursesInterface::instance);
+    CHECK(logger.get());
     logger->clear();
     CHECK_EQUAL(OK, flashbeep());
-    CHECK(logger.get());
     CHECK_EQUAL(2, logger->getCount());
     CHECK_EQUAL(string("flash"), logger->getLog(0));
     CHECK_EQUAL(string("beep"), logger->getLog(1));
