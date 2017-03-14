@@ -11,6 +11,6 @@ namespace fb {
         return ::flash();
     }
 
-    shared_ptr<NCursesInterface> NCursesInterface::instance = 
+    const shared_ptr<NCursesInterface> NCursesInterface::instance = 
         make_shared<NCursesDelegater>();
 }

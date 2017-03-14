@@ -21,6 +21,6 @@ namespace fb {
         return this->logs.at(index);
     }
 
-    shared_ptr<NCursesInterface> NCursesInterface::instance = 
+    const shared_ptr<NCursesInterface> NCursesInterface::instance = 
         make_shared<NCursesLogger>();
 }

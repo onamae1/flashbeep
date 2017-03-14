@@ -10,7 +10,7 @@ namespace fb {
         virtual int beep(void) = 0;
         virtual int flash(void) = 0;
 
-        static shared_ptr<NCursesInterface> instance;
+        static const shared_ptr<NCursesInterface> instance;
     };
 }
 
