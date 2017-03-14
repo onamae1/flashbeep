@@ -12,6 +12,7 @@ namespace fb {
     class NCursesLogger : public NCursesInterface {
     public:
         virtual int beep(void) override;
+        void clear(void);
         virtual int flash(void) override;
         size_t getCount();
         string getLog(const int &index);

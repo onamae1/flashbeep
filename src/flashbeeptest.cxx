@@ -13,9 +13,10 @@ using namespace std;
 TEST_GROUP(flashbeepTestGroup) {};
 
 TEST(flashbeepTestGroup, flashbeepTest) {
-    CHECK_EQUAL(OK, flashbeep());
     auto logger = dynamic_pointer_cast<NCursesLogger>(
             NCursesInterface::instance);
+    logger->clear();
+    CHECK_EQUAL(OK, flashbeep());
     CHECK(logger.get());
     CHECK_EQUAL(2, logger->getCount());
     CHECK_EQUAL(string("flash"), logger->getLog(0));

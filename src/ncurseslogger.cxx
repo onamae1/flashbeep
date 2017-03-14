@@ -8,6 +8,10 @@ namespace fb {
         return OK;
     }
 
+    void NCursesLogger::clear(void) {
+        this->logs.clear();
+    }
+
     int NCursesLogger::flash(void) {
         this->logs.push_back("flash");
         return OK;
