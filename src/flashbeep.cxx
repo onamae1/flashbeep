@@ -5,7 +5,7 @@
 
 using namespace fb;
 
-namespace fb {
+extern "C" {
     int __stdcall flashbeep(void) {
         int result = OK;
         if (OK != NCursesInterface::instance->flash()) {

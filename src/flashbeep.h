@@ -1,7 +1,7 @@
 #ifndef FLASHBEEP_H
 #define FLASHBEEP_H
 
-namespace fb {
+extern "C" {
     int __stdcall flashbeep(void);
 }
 
