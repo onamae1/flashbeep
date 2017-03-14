@@ -6,10 +6,10 @@ using namespace fb;
 
 namespace fb {
     int __stdcall flashbeep(void) {
-        if ((int ret = flash()) != OK) {
+        if (flash() != OK) {
             return ERR;
         }
-        if ((int ret = beep()) != OK) {
+        if (beep() != OK) {
             return ERR;
         }
         return OK;
