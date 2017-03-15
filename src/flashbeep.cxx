@@ -1,3 +1,4 @@
+//! \file flashbeep.cxx
 #include "flashbeep.h"
 #include "ncursesinterface.h"
 
